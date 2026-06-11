@@ -31,8 +31,12 @@ jobs:
           node-version: 24
           cache: pnpm
 
+      # --ignore-scripts skips the dependency build-script approval gate
+      # (pnpm exits non-zero on the intentionally-ignored esbuild build).
+      # The native deps (esbuild, rollup, tailwind-oxide, lightningcss) ship
+      # prebuilt platform binaries, so no build script is needed to compile.
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       # Invoke vite directly so pnpm's pre-run dependency check (which trips on
       # the intentionally-ignored esbuild build script) doesn't abort the build.
