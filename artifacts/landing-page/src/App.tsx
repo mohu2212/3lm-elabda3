@@ -15,7 +15,7 @@ import {
 import NotFound from "@/pages/not-found";
 
 // Import Brand Assets
-import logoPath from "@assets/logo_1781177922104.jpeg";
+import logoPath from "@assets/logo_1781179486280.png";
 import photo1 from "@assets/WhatsApp_Image_2026-06-_1781177922104.jpeg";
 import photo2 from "@assets/WhatsApp_Image_2026-06-11__1781177922104.jpeg";
 import photo3 from "@assets/WhatsApp_Image_2026-06-11_a_1781177922104.jpeg";
