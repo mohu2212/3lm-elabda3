@@ -8,10 +8,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Building2, PhoneCall, CheckCircle2, Factory, Home as HomeIcon, 
-  Store, MapPin, ShieldCheck, Clock, MessageCircle, 
-  Menu, X, Tent, Warehouse, Hotel, TentTree, 
+  Store, MapPin, ShieldCheck, Clock,
+  Menu, X, Tent, Warehouse, Hotel, TentTree,
   Fuel, Pickaxe, BookOpen, Castle, Wrench, ChevronLeft
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import NotFound from "@/pages/not-found";
 
 // Import Brand Assets
@@ -104,8 +105,14 @@ function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <Button asChild variant={isScrolled ? "default" : "secondary"} className="font-bold">
+              <a href={`tel:${phoneNumber}`}>
+                <PhoneCall className="w-5 h-5 ml-2" />
+                اتصل بنا
+              </a>
+            </Button>
+            <Button asChild className="font-bold bg-[#25D366] hover:bg-[#1EBE5A] text-white">
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 ml-2" />
+                <FaWhatsapp className="w-5 h-5 ml-2" />
                 واتساب
               </a>
             </Button>
@@ -131,7 +138,16 @@ function Navbar() {
               <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="font-medium text-secondary hover:text-primary p-2">مشاريعنا</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="font-medium text-secondary hover:text-primary p-2">اتصل بنا</a>
               <Button asChild className="w-full mt-2">
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">تواصل عبر الواتساب</a>
+                <a href={`tel:${phoneNumber}`}>
+                  <PhoneCall className="w-5 h-5 ml-2" />
+                  اتصل بنا الآن
+                </a>
+              </Button>
+              <Button asChild className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp className="w-5 h-5 ml-2" />
+                  تواصل عبر الواتساب
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -178,7 +194,7 @@ function Hero() {
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg font-bold bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white">
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5 ml-2" />
+                  <FaWhatsapp className="w-5 h-5 ml-2" />
                   تواصل عبر الواتساب
                 </a>
               </Button>
@@ -381,7 +397,7 @@ function CTA() {
                 </Button>
                 <Button asChild size="lg" className="h-16 px-8 text-lg font-bold bg-[#25D366] hover:bg-[#1EBE5A] text-white shadow-lg shadow-[#25D366]/20">
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-6 h-6 ml-2" />
+                    <FaWhatsapp className="w-6 h-6 ml-2" />
                     تواصل عبر الواتساب
                   </a>
                 </Button>
@@ -411,8 +427,8 @@ function Footer() {
               شريكك الموثوق في عالم المقاولات. نبني بخبرة واحترافية تلبي طموحاتك وتحقق رؤية المملكة، مع التزام تام بالجودة والوقت.
             </p>
             <div className="flex gap-4">
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
-                <MessageCircle className="w-5 h-5" />
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#25D366] hover:text-white transition-colors">
+                <FaWhatsapp className="w-5 h-5" />
               </a>
               <a href={`tel:${phoneNumber}`} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
                 <PhoneCall className="w-5 h-5" />
@@ -463,21 +479,30 @@ function Footer() {
   );
 }
 
-function FloatingWhatsApp() {
+function FloatingContact() {
   return (
-    <a
-      href={whatsappLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce hover:animate-none"
-      aria-label="تواصل معنا عبر واتساب"
-    >
-      <MessageCircle className="w-8 h-8" />
-      <span className="absolute -top-1 -right-1 flex h-4 w-4">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CCFF00] opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-4 w-4 bg-[#CCFF00]"></span>
-      </span>
-    </a>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce hover:animate-none"
+        aria-label="تواصل معنا عبر واتساب"
+      >
+        <FaWhatsapp className="w-8 h-8" />
+        <span className="absolute -top-1 -right-1 flex h-4 w-4">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CCFF00] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-4 w-4 bg-[#CCFF00]"></span>
+        </span>
+      </a>
+      <a
+        href={`tel:${phoneNumber}`}
+        className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+        aria-label="اتصل بنا الآن"
+      >
+        <PhoneCall className="w-8 h-8" />
+      </a>
+    </div>
   );
 }
 
@@ -492,7 +517,7 @@ function Home() {
       <Projects />
       <CTA />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingContact />
     </div>
   );
 }
