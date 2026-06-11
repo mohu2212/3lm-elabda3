@@ -161,7 +161,7 @@ function Hero() {
             <span className="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary/30 text-primary text-sm font-bold mb-6">
               مقاولات عامة معتمدة 100%
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.4] md:leading-[1.35] mb-6">
               نبني <span className="text-primary">الوطن</span>،<br/> نؤسس للمستقبل.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
@@ -207,7 +207,7 @@ function About() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6 leading-[1.45]">
               قوة تنفيذية <span className="text-primary">هائلة</span> تمتد عبر المملكة
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -258,7 +258,7 @@ function Services() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <FadeIn className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-bold text-sm tracking-wider uppercase mb-2 block">خدمات المقاولات</span>
-          <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6">
+          <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6 leading-[1.45]">
             حلول إنشائية متكاملة لجميع القطاعات
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -296,7 +296,7 @@ function WhyUs() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">
+          <h2 className="text-3xl md:text-5xl font-black mb-6 leading-[1.45]">
             لماذا تختار <span className="text-primary">عالم الإبداع المتطورة</span>؟
           </h2>
           <p className="text-lg text-gray-400">
@@ -326,7 +326,7 @@ function Projects() {
       <div className="container mx-auto px-4 md:px-6">
         <FadeIn className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-black text-secondary mb-4">
+            <h2 className="text-3xl md:text-5xl font-black text-secondary mb-4 leading-[1.45]">
               نظرة على <span className="text-primary">مشاريعنا</span>
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -366,7 +366,7 @@ function CTA() {
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23C9A84C\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
             
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-[1.45]">
                 هل لديك مشروع ضخم يحتاج إلى <span className="text-primary">خبرة موثوقة</span>؟
               </h2>
               <p className="text-xl text-gray-300 mb-10">
