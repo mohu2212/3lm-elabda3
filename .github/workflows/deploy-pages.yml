@@ -1,0 +1,64 @@
+name: Deploy landing page to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow the workflow to publish to Pages and authenticate the deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deployment at a time; cancel older in-progress runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Invoke vite directly so pnpm's pre-run dependency check (which trips on
+      # the intentionally-ignored esbuild build script) doesn't abort the build.
+      # BASE_PATH must match the project-pages subpath (/<repo>/); PORT is only
+      # read by vite.config.ts's guard and is unused during a build.
+      - name: Build landing page
+        working-directory: artifacts/landing-page
+        env:
+          PORT: "8080"
+          BASE_PATH: "/3lm-elabda3/"
+        run: ./node_modules/.bin/vite build --config vite.config.ts
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: artifacts/landing-page/dist/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
